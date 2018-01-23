@@ -1,0 +1,33 @@
+{
+  "name": "gulp-make-css-url-version-extend",
+  "version": "1.1.5",
+  "description": "replace version for images in css files",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangShunXiang/gulp-make-css-url-version-tdw"
+  },
+  "author": {
+    "name": "w3cui",
+    "email": "393733109@qq.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "image version",
+    "css"
+  ],
+  "dependencies": {
+    "gulp-util": "^3.0.0",
+    "through2": "^0.6.1",
+    "q":"^1.0.1"
+  },
+  "homepage": "https://github.com/w3cui/gulp-make-css-url-version-extend.git",
+  "_id": "gulp-make-css-url-version-extend@0.0.4",
+  "_from": "gulp-make-css-url-version-extend@"
+}
