@@ -19,7 +19,7 @@ var getMD5 = function (data) {
 var formatDate = function (format, date) {
     date = date || new Date();
     var o = {
-        "M+": date.getMonth() + 1,
+        "M+": date.getMonth(),
         "d+": date.getDate(),
         "h+": date.getHours(),
         "m+": date.getMinutes(),
@@ -50,7 +50,9 @@ module.exports = function (options) {
             var newArr = [];
             //  过滤配置URL
             function fillterDomain() {
+                if(!excludeDomain) return ;
                 for (var i = 0; i < excludeDomain.length; i++) {
+
                     newArr.push(`url.indexOf("${excludeDomain[i]}")`)
                 }
                 return newArr.join(">-1 || ").replace(/^".*"$/)
@@ -81,7 +83,6 @@ module.exports = function (options) {
                 if (eval(testUrl)) {
                     return str;
                 }
-                console.log(testUrl)
                 if (options.domainName) {
                     url = url.replace(/['"]*/g, "").replace(/^https:\/\/.*?\//, options.domainName);
                     url = url.replace(/['"]*/g, "").replace(/^http:\/\/.*?\//, options.domainName);
@@ -107,7 +108,7 @@ module.exports = function (options) {
 
                 var promise = readFile(imageFilePath)
                     .then(function (data) {
-                        //gutil.log('replacing image ' + imageFilePath + ' version in css file: ' + file.path);
+                        gutil.log('replacing image ' + imageFilePath + ' version in css file: ' + file.path);
                         var verStr = data ? getMD5(data.toString()).substr(0, 8) : formatDate(format);
                         return {
 
