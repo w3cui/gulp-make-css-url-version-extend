@@ -3,7 +3,7 @@ var path = require('path');
 var crypto = require('crypto');
 var fs = require('fs');
 
-var gutil = require('gulp-util');
+// var gutil = require('gulp-util');
 var through = require('through2');
 var Q = require('q');
 var ndate = new Date()
@@ -62,12 +62,12 @@ module.exports = function (options) {
                 return cb();
             }
             if (file.isStream()) {
-                this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
+//                 this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
                 return cb();
             }
             //css file only
             if (!/^\.css?$/.test(path.extname(file.path))) {
-                gutil.log(gutil.colors.red('[WARN] file ' + fileName + ' is not a css file'));
+//                 gutil.log(gutil.colors.red('[WARN] file ' + fileName + ' is not a css file'));
                 this.push(file);
                 return cb();
             }
@@ -108,7 +108,7 @@ module.exports = function (options) {
 
                 var promise = readFile(imageFilePath)
                     .then(function (data) {
-                        gutil.log('replacing image ' + imageFilePath + ' version in css file: ' + file.path);
+//                         gutil.log('replacing image ' + imageFilePath + ' version in css file: ' + file.path);
                         var verStr = data ? getMD5(data.toString()).substr(0, 8) : formatDate(format);
                         return {
 
